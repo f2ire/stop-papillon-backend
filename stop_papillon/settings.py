@@ -26,6 +26,7 @@ DATABASES = {
     'default': dj_database_url.config(default=config('DATABASE_URL'))
 }
 
+AUTH_USER_MODEL = 'focus.User' # Make sure to use the custom user model
 
 ALLOWED_HOSTS = []
 
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'focus',
 ]
 
 MIDDLEWARE = [
@@ -69,17 +71,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'stop_papillon.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
 
 # Password validation
