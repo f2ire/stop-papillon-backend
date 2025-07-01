@@ -3,9 +3,9 @@ from django.urls import path, include
 from .views import SessionViewSet, ProtectedView
 
 router = DefaultRouter()
-router.register(r'sessions', SessionViewSet)
+router.register(r'sessions', SessionViewSet, basename="session")
 
 urlpatterns = [
     path('', include(router.urls)),
-    path("protected/", ProtectedView.as_view(), name = "protected"),
+    path('protected/', ProtectedView.as_view(), name = "protected"),
 ]

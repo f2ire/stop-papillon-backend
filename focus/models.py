@@ -17,10 +17,10 @@ class Session(models.Model):
     Represents a user session
     """
     user = models.ForeignKey("focus.User", on_delete=models.CASCADE, related_name="sessions")
-    start_time = models.DateTimeField()
+    start_time = models.DateTimeField(auto_now_add=True)
     end_time = models.DateTimeField(null=True, blank=True)
     was_successful = models.BooleanField(default=False)
-    distrations = models.PositiveIntegerField(default=0)
+    expected_duration = models.PositiveIntegerField(default=30)
 
     def duration(self):
         if self.end_time:
